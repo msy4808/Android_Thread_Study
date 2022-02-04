@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                     }catch (Exception e){
                         e.printStackTrace();
                     }
-                    mHandler.sendEmptyMessage(0);
+                    mHandler.sendEmptyMessage(0); //메인스레드에 메세지를 전송
                 }
             }
         }
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     }
     class Handler extends android.os.Handler {
         @Override
-        public void handleMessage(@NonNull Message msg) {
+        public void handleMessage(@NonNull Message msg) { //메인스레드에서 수신된 메세지를 처리하는 코드(메인 UI 그리기)
             clock = findViewById(R.id.clock);
             Calendar cal = Calendar.getInstance(); //현재시간을 가져올 객체 생성
             SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss"); //데이터 포맷터 객체 생성 및 초기화
