@@ -36,11 +36,11 @@ public class MainActivity extends AppCompatActivity {
         }
         Diclock diclock = new Diclock();
         Thread thread = new Thread(diclock);
-        thread.start();
+        thread.start(); //run() 실행
     }
     class Handler extends android.os.Handler {
         @Override
-        public void handleMessage(@NonNull Message msg) { //메인스레드에서 수신된 메세지를 처리하는 코드(메인 UI 그리기)
+        public void handleMessage(@NonNull Message msg) { //메인스레드에서 수신된 메세지를 처리하는 코드(메인 UI 그리기), 메세지가 수신되면 실행되는 메소드
             clock = findViewById(R.id.clock);
             Calendar cal = Calendar.getInstance(); //현재시간을 가져올 객체 생성
             SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss"); //데이터 포맷터 객체 생성 및 초기화
